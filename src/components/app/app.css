@@ -1,0 +1,34 @@
+.App {
+    color: white;
+    height: 100%;
+    text-align: center;
+}
+
+.films {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.spinner {
+    size: 5rem;
+}
+
+.search-container {
+    margin-top: 2rem;
+}
+
+.errMas {
+    display: block;
+}
+
+.errImg {
+    margin-top: 5rem;
+    width: 50rem;
+}
