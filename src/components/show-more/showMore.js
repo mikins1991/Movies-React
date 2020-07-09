@@ -9,7 +9,6 @@ const ShowMore = (props) => {
 
     if (props.total <= 10) return null;
 
-    let defPage = 1;
     const showNext = (e) => {
         e.preventDefault();
         setCalcPage((prevPage) => prevPage + 1);
