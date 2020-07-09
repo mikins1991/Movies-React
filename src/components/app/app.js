@@ -3,7 +3,7 @@ import AppHeader from '../header';
 import Films from '../films';
 import Search from '../search';
 import ShowMore from '../show-more';
-import movie from '../../movie.svg';
+import noData from '../../noData.png';
 import './app.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Spinner from 'react-bootstrap/Spinner';
@@ -30,6 +30,7 @@ const App = () => {
         setLoading(true);
         setErrorMessage(null);
         setSearchValue(searchValue);
+        setTotalResults(null);
 
         fetch(`https://www.omdbapi.com/?s=${searchValue}&page=${1}&apikey=f9b162b1`)
             .then((response) => response.json())
@@ -41,6 +42,7 @@ const App = () => {
                 } else {
                     setErrorMessage(jsonResponse.Error);
                     setLoading(false);
+                    setTotalResults(null);
                 }
             });
     };
@@ -60,6 +62,7 @@ const App = () => {
                     } else {
                         setErrorMessage(jsonResponse.Error);
                         setLoading(false);
+                        setTotalResults(null);
                     }
                 });
         },
@@ -80,7 +83,7 @@ const App = () => {
                         <Spinner className='spinner' animation='border' variant='danger' />
                     ) : errorMessage ? (
                         <div className='errorMessage'>
-                            <img className='errImg' src={movie} alt='Error' />
+                            <img className='errImg' src={noData} alt='Error' />
                             <h1 className='errMas'>{errorMessage}</h1>
                         </div>
                     ) : (
